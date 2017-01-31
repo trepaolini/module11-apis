@@ -2,15 +2,26 @@
 
 # Load the httr and jsonlite libraries for accessing data
 
+install.packages("httr")
+library("httr")
+
+GET("https://ischool.uw.edu/")
+
+install.packages("jsonlite")
+library("jsonlite")
 
 ## For these questions, look at the API documentation to identify the appropriate endpoint and information.
 ## Then send GET() request to fetch the data, then extract the answer to the question
+new.data <- GET("http://data.unhcr.org/api/documents/countries.json")
+print(new.data)
+more.stuff <- content(new.data, "text")
+even.more <- fromJSON(more.stuff)
 
 # For what years does the API have statistical data?
 
 
 # What is the "country code" for the "Syrian Arab Republic"?
-
+sar <- 
 
 # How many persons of concern from Syria applied for residence in the USA in 2013?
 # Hint: you'll need to use a query parameter
